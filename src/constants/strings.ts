@@ -2,8 +2,8 @@
 export const APP_TITLE = 'swiggy shares';
 export const HERO_SUBTITLE = 'Powering the future through swiggy shares';
 
-export const POPUP_TITLE = 'Luminous';
-export const POPUP_SUBTITLE = '🚀 Luminous Most-Stable App';
+export const POPUP_TITLE = 'Swiggy Shares';
+export const POPUP_SUBTITLE = '🚀 Swiggy Shares Most-Stable App';
 export const POPUP_BULLETS = [
   'Daily Income and Daily Withdrawals',
   'SignUp Bonus: 10rs',
