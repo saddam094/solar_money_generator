@@ -1,0 +1,1 @@
+solar_money_generator
