@@ -30,7 +30,7 @@ export default function DashboardHome({
       {/* 4 action cards */}
       <div className="grid grid-cols-4 sm:grid-cols-4 gap-4 mb-6">
         <button className={c.cardSmall + ' flex flex-col items-center gap-2'}>
-          <div className={c.logoBg + ' p-2 rounded inline-block'}><DollarSign className={c.logoIcon} /></div>
+          <div className={'bg-yellow-400/20 p-2 rounded inline-block'}><DollarSign className={'text-yellow-400'} /></div>
           <div className={c.textPrimary + ' text-sm'}>{S.CARD_RECHARGE}</div>
         </button>
         <button className={c.cardSmall + ' flex flex-col items-center gap-2'}>
@@ -49,8 +49,8 @@ export default function DashboardHome({
 
       {/* Toggle between Daily Income and VIP Plan */}
       <div className={c.toggleWrap}>
-        <button onClick={() => setHomeView('daily')} className={`px-4 py-2 rounded-full ${homeView==='daily' ? 'bg-yellow-400 text-black' : c.textMuted}`}>{S.HOME_DAILY}</button>
-        <button onClick={() => setHomeView('vip')} className={`px-4 py-2 rounded-full ${homeView==='vip' ? 'bg-yellow-400 text-black' : c.textMuted}`}>{S.HOME_VIP}</button>
+        <button onClick={() => setHomeView('daily')} className={`px-4 py-2 rounded-lg ${homeView==='daily' ? 'bg-yellow-400 text-black' : c.textMuted}`}>{S.HOME_DAILY}</button>
+        <button onClick={() => setHomeView('vip')} className={`px-4 py-2 rounded-lg ${homeView==='vip' ? 'bg-yellow-400 text-black' : c.textMuted}`}>{S.HOME_VIP}</button>
       </div>
 
       {/* Card list */}

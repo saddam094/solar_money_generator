@@ -15,7 +15,7 @@ export default function Header({ profile, signOut, onLogoClick }: { profile: Pro
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center gap-3">
             <button onClick={() => onLogoClick?.()} className={c.logoBg + ' p-0 border-0 cursor-pointer'} aria-label="Go to home">
-              <img src={logo} alt="logo" className="w-8 h-8 rounded-lg border border-white " />
+              <img src={logo} alt="logo" className="w-8 h-8 rounded-lg border border-white" />
             </button>
             <span className={c.title}>{S.APP_TITLE}</span>
           </div>
