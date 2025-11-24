@@ -1,0 +1,30 @@
+// Centralized Tailwind class tokens for colors and common visual styles
+export const c = {
+  nav: 'bg-white/10 backdrop-blur-md border-b border-white/10',
+  logoBg: 'rounded-lg',
+  logoIcon: 'w-16 h-16 rounded-lg border border-white',
+  title: 'text-white text-xl font-bold',
+  textPrimary: 'text-white',
+  textMuted: 'text-white/80',
+  vipText: 'text-yellow-300 font-semibold',
+  card: 'bg-white/5 p-4 rounded-lg',
+  cardSmall: 'bg-white/5 p-2 rounded-lg',
+  panel: 'bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/10',
+  qrBox: 'w-44 h-44 bg-white/5 flex items-center justify-center rounded-lg flex-shrink-0',
+  cardInner: 'bg-white/6 rounded-lg overflow-hidden border border-white/8',
+  toggleWrap: 'bg-white/5 p-3 rounded-lg mb-6 flex items-center gap-3',
+  btnPrimary: 'px-4 py-2 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-md text-black font-semibold',
+  btnAccent: 'w-full py-3 bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-white font-semibold rounded-lg shadow-lg transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed',
+  btnPrimaryFull: 'w-full inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-3 rounded-lg',
+  btnSecondary: 'px-3 py-2 bg-white/10 rounded flex items-center gap-2',
+  btnWarn: 'px-3 py-2 bg-yellow-400 rounded flex items-center gap-2',
+  bottomNavWrap: 'bg-white/5 backdrop-blur-md px-4 py-2 rounded-full flex items-center gap-6 border border-white/10',
+  popupOverlay: 'absolute inset-0 bg-black/50',
+  popupCard: 'relative z-50 max-w-sm w-full bg-white rounded-2xl shadow-2xl overflow-hidden',
+  popupClose: 'absolute top-3 right-3 p-2 text-slate-600 hover:text-black rounded-full',
+  input: 'w-full px-3 py-2 bg-white/5 rounded text-white/70',
+  panelLarge: 'bg-white/10 backdrop-blur-md rounded-2xl p-8 shadow-2xl',
+  logoRound: 'bg-white/10 backdrop-blur-md p-4 rounded-full',
+};
+
+export default c;

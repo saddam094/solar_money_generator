@@ -1,28 +1,33 @@
 import { useState } from 'react';
-import { Sun } from 'lucide-react';
+import { Sun, Eye, EyeOff } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import { toast } from './Toast';
+import c from '../styles/colors';
+import * as S from '../constants/strings';
+import logo from '../assets/images/logo.png';
+import cardImage from '../assets/images/card.png';
 
 interface LoginProps {
   onSwitchToRegister: () => void;
 }
 
 export function Login({ onSwitchToRegister }: LoginProps) {
-  const [email, setEmail] = useState('');
+  const [mobileNumber, setMobileNumber] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const { signIn } = useAuth();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!email || !password) {
+    if (!mobileNumber || !password) {
       toast.error('Please fill in all fields');
       return;
     }
 
     setLoading(true);
-    const { error } = await signIn(email, password);
+    const { error } = await signIn(mobileNumber, password);
     setLoading(false);
 
     if (error) {
@@ -34,49 +39,58 @@ export function Login({ onSwitchToRegister }: LoginProps) {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-900 via-blue-800 to-blue-950 relative overflow-hidden">
-      <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/159397/solar-panel-array-power-sun-electricity-159397.jpeg?auto=compress&cs=tinysrgb&w=1920')] bg-cover bg-center opacity-20"></div>
+      <div className="absolute inset-0 bg-cover opacity-20" style={{ backgroundImage: `url(${cardImage})` }}></div>
 
       <div className="relative z-10 w-full max-w-md px-6">
         <div className="text-center mb-8">
           <div className="flex justify-center mb-4">
-            <div className="bg-white/10 backdrop-blur-md p-4 rounded-full">
-              <Sun className="text-yellow-400" size={48} />
-            </div>
+            {/* <div className={c.logoRound}>
+              <Sun className={c.logoIcon} size={48} />
+            </div> */}
+            <img src={logo} alt="logo" className={c.logoIcon}/>
           </div>
-          <h1 className="text-3xl font-bold text-white mb-2">Solar AI Power</h1>
-          <p className="text-blue-200">Powering the future with solar energy</p>
+          <h1 className="text-3xl font-bold text-white mb-2">{S.APP_TITLE}</h1>
+          <p className="text-blue-200">{S.HERO_SUBTITLE}</p>
         </div>
 
-        <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 shadow-2xl">
-          <h2 className="text-2xl font-bold text-white mb-6 text-center">Login</h2>
+        <div className={c.panelLarge}>
+          <h2 className={c.title + ' text-2xl mb-6 text-center'}>{S.LOGIN_TITLE}</h2>
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <input
-                type="email"
-                placeholder="Email Address"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                type="tel"
+                placeholder="Mobile Number"
+                value={mobileNumber}
+                onChange={(e) => setMobileNumber(e.target.value)}
                 className="w-full px-4 py-3 bg-white/20 backdrop-blur-sm border border-white/30 rounded-lg text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-all"
               />
             </div>
 
-            <div>
+            <div className="relative">
               <input
-                type="password"
+                type={showPassword ? 'text' : 'password'}
                 placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 className="w-full px-4 py-3 bg-white/20 backdrop-blur-sm border border-white/30 rounded-lg text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-all"
               />
+              <button
+                type="button"
+                onClick={() => setShowPassword((s) => !s)}
+                aria-label={showPassword ? 'Hide password' : 'Show password'}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-white/80"
+              >
+                {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+              </button>
             </div>
 
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-3 bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-white font-semibold rounded-lg shadow-lg transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed"
+              className={c.btnAccent}
             >
-              {loading ? 'Signing in...' : 'Login'}
+              {loading ? 'Signing in...' : S.LOGIN_BUTTON}
             </button>
           </form>
 
